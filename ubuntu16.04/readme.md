@@ -1,10 +1,10 @@
-# Debian image with systemd enabled
+# Ubuntu image with systemd enabled
 
 You can use this image as a base container to run systemd services inside.
 
 ## Supported tags
 
-* `latest`, `9`
+* `latest`, `16.04`
 
 ## Usage
 
@@ -13,13 +13,13 @@ Run the container as a daemon
 ```shell
 docker run -d \
 --privileged \
---name systemd-debian \
+--name systemd-ubuntu \
 -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-cnphpbb/systemd-debian:9
+cnphpbb/systemd-ubuntu:16.04
 ```
 
 Enter to the container
 
 ```shell
-docker exec -it systemd-debian bash
+docker exec -it systemd-ubuntu bash
 ```
