@@ -15,11 +15,12 @@ docker run -d \
 --name web00 \
 -v /etc/caddy/caddyconf:/etc/caddy/caddyconf:ro \
 -v /data/webroot:/var/caddy \
+-v /etc/ssl/caddy:/root/.caddy \
 cnphpbb/caddy-alpine
 ```
 
 Enter to the container
 
 ```shell
-docker exec -it web00 ash
+docker exec -it web00 sh
 ```
