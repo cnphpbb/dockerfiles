@@ -9,7 +9,7 @@ RUN curl "https://caddyserver.com/download/linux/amd64?plugins=docker,dyndns,htt
     | tar --no-same-owner -C /usr/bin/ -xz caddy
 
 #Remove build devs
-RUN apk del devs
+RUN apk del devs && rm -rf /var/cache/apk/*
 
 #Copy over a default Caddyfile
 COPY ./Caddyfile /etc/Caddyfile
