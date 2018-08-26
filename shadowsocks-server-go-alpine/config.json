@@ -1,0 +1,10 @@
+{
+  "server":"45.248.85.178",
+  "server_port":58388,
+  "local_port":1080,
+  "port_password":{
+       "58399":"gy#0412"
+  },
+  "method": "aes-256-cfb",
+  "timeout":600
+}
