@@ -11,8 +11,16 @@ a docker image base on alpine with mysql
 
 ## Usage
 
+**fiest**:
+
 ```shell
-# docker run -itd --name mysql -p 3306:3306 -v $(pwd)/data:/data -e MYSQL_DATABASE=admin -e MYSQL_USER=cnphpbb -e MYSQL_PASSWORD=password -e MYSQL_ROOT_PASSWORD=pwd112233 wangxian/alpine-mysql
+# docker run -it --name mysql -p 3306:3306 -v $(pwd)/data:/data -e MYSQL_DATABASE=admin -e MYSQL_USER=cnphpbb -e MYSQL_PASSWORD=password -e MYSQL_ROOT_PASSWORD=pwd112233 cnphpbb/mysql-alpine
+```
+
+**second**:
+
+```shell
+# docker run -d --restart always --name mysql -p 3306:3306 -v $(pwd)/data:/data  cnphpbb/mysql-alpine
 ```
 
 It will create a new db, and set mysql root password(default is pwd112233)
