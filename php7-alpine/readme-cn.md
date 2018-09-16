@@ -6,5 +6,20 @@
 >
 > 其目录结构也是为了运维人员的工作而制定的。
 
+## 运行容器
 
+```shell
+docker run -d \
+-p 9040:9040 \
+--name php7.1 \
+--restart always \
+-v /etc/confd/php.ini:/etc/php/php.ini:ro \
+-v /data/webapp/scan:/data/webapp/scan \
+cnphpbb/php7.1-alpine
+```
 
+## 连接容器
+
+```shell
+docker exec -it php7.1 ash
+```
