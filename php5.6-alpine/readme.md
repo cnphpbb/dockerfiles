@@ -3,24 +3,30 @@
 
 ## Supported tags
 
-* `5.6.37`
+* `5.6.38`
 
 ## Usage
 
 Run the container as a daemon
 
-```shell
+```sh
 docker run -d \
 --restart always \
--p 9000:9000 \    # 按实际情况
---name <$project_name>_php_<$id> \
--v /data/conf/php56:/etc/php:ro \
--v /data/webroot/<$project_name>:/var/www/<$project_name> \
-cnphpbb/php5.6-alpine:5.6.37
+-p 9010:9010 \    # 按实际情况
+--name my-running-app \
+-v /data/conf/php56/etc:/data/server/php5.6.38/etc:ro \
+-v /data/webroot/admin:/var/www/admin \
+cnphpbb/php-alpine:5.6.38
 ```
 
 Enter to the container
 
-```shell
-docker exec -it php5.6 ash
+```sh
+docker exec -it my-running-app sh
+```
+
+```sh
+docker container restart my-running-app
+docker container stop my-running-app
+docker container start my-running-app
 ```
