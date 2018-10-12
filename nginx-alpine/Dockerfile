@@ -21,7 +21,9 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
         \
         rm -rf /var/cache/apk/*
 
+EXPOSE 80
+STOPSIGNAL SIGTERM
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["/usr/sbin/nginx"]
+CMD ["nginx", "-g", "daemon off;"]
 
 
