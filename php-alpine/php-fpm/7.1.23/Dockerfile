@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:latest
 MAINTAINER cnphpbb Gunn <moqiruyi@gmail.com>
 
 WORKDIR /data/server /data/soft /data/webapp
