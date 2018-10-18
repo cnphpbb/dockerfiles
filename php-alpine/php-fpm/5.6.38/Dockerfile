@@ -1,6 +1,9 @@
 FROM alpine:latest
 MAINTAINER cnphpbb Gunn <moqiruyi@gmail.com>
 
+ENV PROURL="http://192.168.6.24:88" \
+    DEVURL="http://10.188.12.21"
+
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories; \
         \
   	    apk add --no-cache libxml2 \
@@ -18,18 +21,16 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
         mkdir -p /data/server; \
         cd /data/server; \
         \
-        wget http://10.188.12.21/alpine/php5.6/php-5.6.38-alpine.tgz; \
+        wget $DEVURL/alpine/php5.6/php-5.6.38-alpine.tgz; \
         \
         tar xf php-5.6.38-alpine.tgz; \
-        addgroup -S www; \
-        adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G www www; \
         \
         ln -s /data/server/php5.6.38/bin/php /usr/bin/php; \
         ln -s /data/server/php5.6.38/sbin/php-fpm /usr/sbin/php-fpm; \
         \
         cd /data/server/php5.6.38/etc; \
         \
-        wget http://10.188.12.21/alpine/php5.6/etc/php-fpm.conf; \
+        wget $DEVURL/alpine/php5.6/etc/php-fpm.conf; \
         \
         rm -f /data/server/php-5.6.38-alpine.tgz; \
         \
