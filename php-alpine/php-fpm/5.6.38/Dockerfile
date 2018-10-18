@@ -37,6 +37,6 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
         rm -rf /var/cache/apk/*
 
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["/usr/sbin/php-fpm", "-R", "-F"]
+CMD ["php-fpm", "-R", "-F"]
 
 
