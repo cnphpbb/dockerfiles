@@ -1,6 +1,9 @@
 FROM alpine:latest
 MAINTAINER cnphpbb Gunn <moqiruyi@gmail.com>
 
+ENV PROURL="http://192.168.6.24:88" \
+    DEVURL="http://10.188.12.21"
+
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories; \
         \
   	    apk add --no-cache libssl1.0 \
@@ -9,7 +12,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
         mkdir -p /data/server; \
         cd /data/server; \
         \
-        wget http://10.188.12.21/alpine/nginx/nginx-1.14.0-alpine.tgz; \
+        wget $DEVURL/alpine/nginx/nginx-1.14.0-alpine.tgz; \
         \
         tar xf nginx-1.14.0-alpine.tgz; \
         addgroup -S www; \
