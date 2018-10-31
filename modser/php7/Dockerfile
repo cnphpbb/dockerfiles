@@ -46,7 +46,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
         ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime; \ 
         echo "Asia/Shanghai" > /etc/timezone
 
-COPY swoole /data/webroot/swoole
+COPY swoole /data/webroot/
 COPY start.sh /start.sh
 
 EXPOSE 9701
