@@ -1,4 +1,4 @@
-FROM cnphpbb/debian-cn:2.2.1
+FROM cnphpbb/debian-cn:latest
 
 ENV container docker
 ENV LC_ALL C
