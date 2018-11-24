@@ -14,7 +14,7 @@ RUN apt-get update; \
       \
       apt-get update ; \
       \
-      apt-get install -y moosefs-master moosefs-cgi moosefs-cgiserv; \
+      apt-get install -y moosefs-chunkserver; \
       \
       apt-get clean; \
       \
@@ -22,14 +22,12 @@ RUN apt-get update; \
 
 
 # Add and run start script
-ADD start.sh /opt/start.sh
-RUN chown root:root /opt/start.sh; \
+ADD start-chunkserver.sh /opt/start-chunkserver.sh
+RUN chown root:root /opt/start-chunkserver.sh; \
     \
-    chmod 700 /opt/start.sh; \
-    \
-    ln -s /usr/bin/python3 /usr/bin/python
+    chmod 700 /opt/start-chunkserver.sh
 
 # Expose ports
-EXPOSE 9419 9420 9421 9425
+EXPOSE 9419 9420 9422
 
-CMD ["/opt/start.sh", "-d"]
+CMD ["/opt/start-chunkserver.sh", "-d"]
