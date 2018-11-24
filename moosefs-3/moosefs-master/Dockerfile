@@ -1,6 +1,8 @@
-FROM debian:latest
+FROM cnphpbb/debian-cn:2.2.1
 
-ADD sources.list /etc/apt/sources.list
+ENV container docker
+ENV LC_ALL C
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Install softs
 RUN apt-get update; \
@@ -12,7 +14,11 @@ RUN apt-get update; \
       \
       apt-get update ; \
       \
-      apt-get install -y moosefs-master moosefs-cgi moosefs-cgiserv
+      apt-get install -y moosefs-master moosefs-cgi moosefs-cgiserv; \
+      \
+      apt-get clean; \
+      \
+      rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 # Add and run start script
@@ -24,6 +30,6 @@ RUN chown root:root /opt/start.sh; \
     ln -s /usr/bin/python3 /usr/bin/python
 
 # Expose ports
-EXPOSE 9420 9421 9422 9423 9424 9425
+EXPOSE 9419 9420 9421 9422 9425
 
 CMD ["/opt/start.sh", "-d"]
