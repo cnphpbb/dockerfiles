@@ -15,8 +15,8 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
         wget $DEVURL/alpine/nginx/nginx-1.14.0-alpine.tgz; \
         \
         tar xf nginx-1.14.0-alpine.tgz; \
-        addgroup -S www; \
-        adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G www www; \
+        addgroup www; \
+        adduser -D -H -s /sbin/nologin -G www www; \
         \
         ln -s /data/server/nginx/sbin/nginx /usr/sbin/nginx; \
         \
