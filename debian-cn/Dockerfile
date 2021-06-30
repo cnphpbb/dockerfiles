@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 ADD sources.list /etc/apt/sources.list
 
-RUN apt-get update && apt-get install --assume-yes apt-utils vim net-tools tzdata; \
+RUN apt-get update && apt-get install --assume-yes apt-utils vim net-tools tzdata ca-certificates apt-transport-https; \
     \
     apt-get clean; \
     \
